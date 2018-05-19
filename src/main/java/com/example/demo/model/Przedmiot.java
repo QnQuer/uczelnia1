@@ -8,17 +8,19 @@ public class Przedmiot {
      
     @Id
     @GeneratedValue
-   
-    private Kierunek kierunek;
     private Long przedmiot_id;
     private String nazwa;
     private String opis;
     private String rodzaj;
     private int ects;
+    @ManyToOne
+    private Kierunek kierunek;
     @ManyToMany
-    @JoinColumn(name = "przedmiot_id")
-    private List<Student> Students;
-    
+    @JoinTable(
+        name = "Przedmiot_Student", 
+        joinColumns = { @JoinColumn(name = "przedmiot_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "student_id") }
+    )
 
 
     public Przedmiot() {
