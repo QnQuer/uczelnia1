@@ -23,13 +23,13 @@ public class Kierunek {
     private String opis;
     private String stopien;
     private int sets;
-@OneToMany
+    @OneToMany
     @JoinColumn(name = "kierunek_id")
     private List<Student> Students;
-  @OneToMany
+    @OneToMany
     @JoinColumn(name = "kierunek_id")
     private List<Przedmiot> Przedmiot;
-   @OneToMany
+    @OneToMany
     @JoinColumn(name = "kierunek_id")
     private List<Wykladowca> Wykladowca;
 

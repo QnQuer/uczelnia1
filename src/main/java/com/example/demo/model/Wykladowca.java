@@ -21,7 +21,7 @@ public class Wykladowca {
     @OneToMany
     @JoinColumn(name = "wykladowca_id")
     private List<Przedmiot> Przedmiot;
-    @ManyToOne 
+    @ManyToOne
     private Kierunek kierunek;
 
     public Wykladowca() {
