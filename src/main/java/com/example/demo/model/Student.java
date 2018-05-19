@@ -24,17 +24,18 @@ public class Student {
     private String e_mail;
     @ManyToOne
     private Kierunek kierunek;
-    
+    @ManyToOne 
+    private Wykladowca Wykladowca;
     @ManyToMany(mappedBy = "studenci")
     private List<Przedmiot> przedmioty;
 
-     public Student() {
+    public Student() {
     }
-    
-    public Student (Long student_id, String imie, String nazwisko, String data_ur, String miejsce, String pesel , String kod , String miasto, String ulica, String numer, String tel, String e_mail/* ,List<Book> listOfAuthorBooks*/) {
+
+    public Student(Long student_id, String imie, String nazwisko, String data_ur, String miejsce, String pesel, String kod, String miasto, String ulica, String numer, String tel, String e_mail, Kierunek kierunek, Wykladowca Wykladowca, List<Przedmiot> przedmioty) {
         this.student_id = student_id;
         this.imie = imie;
-        this.nazwisko= nazwisko;
+        this.nazwisko = nazwisko;
         this.data_ur = data_ur;
         this.miejsce = miejsce;
         this.pesel = pesel;
@@ -44,29 +45,16 @@ public class Student {
         this.numer = numer;
         this.tel = tel;
         this.e_mail = e_mail;
-        
+        this.kierunek = kierunek;
+        this.Wykladowca = Wykladowca;
+        this.przedmioty = przedmioty;
     }
 
-    public Student(String imie, String nazwisko, String data_ur, String miejsce, String pesel , String kod , String miasto, String ulica, String numer, String tel, String e_mail) {
-        this.imie = imie;      
-        this.nazwisko= nazwisko;
-        this.data_ur = data_ur;
-        this.miejsce = miejsce;
-        this.pesel = pesel;
-        this.kod = kod;
-        this.miasto = miasto;
-        this.ulica = ulica;
-        this.numer = numer;
-        this.tel = tel;
-        this.e_mail = e_mail;
-        
-    }
-
-    public Long getId() {
+    public Long getStudent_id() {
         return student_id;
     }
 
-    public void setId(Long przedmiot_id) {
+    public void setStudent_id(Long student_id) {
         this.student_id = student_id;
     }
 
@@ -85,20 +73,23 @@ public class Student {
     public void setNazwisko(String nazwisko) {
         this.nazwisko = nazwisko;
     }
-     public String getData_ur() {
+
+    public String getData_ur() {
         return data_ur;
     }
 
     public void setData_ur(String data_ur) {
         this.data_ur = data_ur;
     }
-     public String getMiejsce() {
+
+    public String getMiejsce() {
         return miejsce;
     }
 
     public void setMiejsce(String miejsce) {
         this.miejsce = miejsce;
     }
+
     public String getPesel() {
         return pesel;
     }
@@ -106,6 +97,7 @@ public class Student {
     public void setPesel(String pesel) {
         this.pesel = pesel;
     }
+
     public String getKod() {
         return kod;
     }
@@ -113,6 +105,7 @@ public class Student {
     public void setKod(String kod) {
         this.kod = kod;
     }
+
     public String getMiasto() {
         return miasto;
     }
@@ -120,6 +113,7 @@ public class Student {
     public void setMiasto(String miasto) {
         this.miasto = miasto;
     }
+
     public String getUlica() {
         return ulica;
     }
@@ -127,6 +121,7 @@ public class Student {
     public void setUlica(String ulica) {
         this.ulica = ulica;
     }
+
     public String getNumer() {
         return numer;
     }
@@ -134,6 +129,7 @@ public class Student {
     public void setNumer(String numer) {
         this.numer = numer;
     }
+
     public String getTel() {
         return tel;
     }
@@ -141,52 +137,38 @@ public class Student {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
     public String getE_mail() {
         return e_mail;
     }
-    
 
     public void setE_mail(String e_mail) {
         this.e_mail = e_mail;
     }
-}
+
+    public Kierunek getKierunek() {
+        return kierunek;
+    }
+
+    public void setKierunek(Kierunek kierunek) {
+        this.kierunek = kierunek;
+    }
+
+    public Wykladowca getWykladowca() {
+        return Wykladowca;
+    }
+
+    public void setWykladowca(Wykladowca Wykladowca) {
+        this.Wykladowca = Wykladowca;
+    }
+
+    public List<Przedmiot> getPrzedmioty() {
+        return przedmioty;
+    }
+
+    public void setPrzedmioty(List<Przedmiot> przedmioty) {
+        this.przedmioty = przedmioty;
+    }
+
     
- /*   @ManyToMany
-    private List<Accounts> accounts;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Book> listOfRentedBooks;
-
-
-    public Rent() {
-    }
-
-    public Rent(List<Accounts> accounts, List<Book> listOfRentedBooks) {
-        this.accounts = accounts;
-        this.listOfRentedBooks = listOfRentedBooks;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public List<Accounts> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(List<Accounts> accounts) {
-        this.accounts = accounts;
-    }
-
-    public List<Book> getListOfRentedBooks() {
-        return listOfRentedBooks;
-    }
-
-    public void setListOfRentedBooks(List<Book> listOfRentedBooks) {
-        this.listOfRentedBooks = listOfRentedBooks;
-    }
-}*/
+}

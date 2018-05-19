@@ -14,6 +14,8 @@ public class Przedmiot {
     private String rodzaj;
     private int ects;
     @ManyToOne
+    private Wykladowca Wykladowca;
+    @ManyToOne
     private Kierunek kierunek;
     @ManyToMany    
     @JoinTable(
@@ -23,19 +25,19 @@ public class Przedmiot {
     )
     private List<Student> studenci;
 
-    public Przedmiot(Long przedmiot_id, String nazwa, String opis, String rodzaj, int ects, Kierunek kierunek, List<Student> studenci) {
+    public Przedmiot() {
+    }
+
+    public Przedmiot(Long przedmiot_id, String nazwa, String opis, String rodzaj, int ects, Wykladowca Wykladowca, Kierunek kierunek, List<Student> studenci) {
         this.przedmiot_id = przedmiot_id;
         this.nazwa = nazwa;
         this.opis = opis;
         this.rodzaj = rodzaj;
         this.ects = ects;
+        this.Wykladowca = Wykladowca;
         this.kierunek = kierunek;
         this.studenci = studenci;
     }
-
-    public Przedmiot() {
-    }
-    
 
     public Long getPrzedmiot_id() {
         return przedmiot_id;
@@ -77,6 +79,14 @@ public class Przedmiot {
         this.ects = ects;
     }
 
+    public Wykladowca getWykladowca() {
+        return Wykladowca;
+    }
+
+    public void setWykladowca(Wykladowca Wykladowca) {
+        this.Wykladowca = Wykladowca;
+    }
+
     public Kierunek getKierunek() {
         return kierunek;
     }
@@ -92,9 +102,5 @@ public class Przedmiot {
     public void setStudenci(List<Student> studenci) {
         this.studenci = studenci;
     }
-
-
-   
- 
+       
 }
-

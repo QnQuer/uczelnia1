@@ -19,66 +19,97 @@ public class Kierunek {
     @Id
     @GeneratedValue
     private long kierunek_id;
-
     private String nazwa;
     private String opis;
     private String stopien;
     private int sets;
-
- 
-
-    public Kierunek(String nazwa, String opis, String stopien, int sets) {
-        this.nazwa = nazwa;
-        this.opis = opis;
-        this.stopien = stopien;
-        this.sets = sets;
-        
-    }
-
-    public Kierunek() {
-    }
- @OneToMany
+@OneToMany
     @JoinColumn(name = "kierunek_id")
     private List<Student> Students;
   @OneToMany
     @JoinColumn(name = "kierunek_id")
     private List<Przedmiot> Przedmiot;
+   @OneToMany
+    @JoinColumn(name = "kierunek_id")
+    private List<Wykladowca> Wykladowca;
 
+    public Kierunek() {
+    }
 
-    public long getkierunek_id() {
+    public Kierunek(long kierunek_id, String nazwa, String opis, String stopien, int sets, List<Student> Students, List<Przedmiot> Przedmiot, List<Wykladowca> Wykladowca) {
+        this.kierunek_id = kierunek_id;
+        this.nazwa = nazwa;
+        this.opis = opis;
+        this.stopien = stopien;
+        this.sets = sets;
+        this.Students = Students;
+        this.Przedmiot = Przedmiot;
+        this.Wykladowca = Wykladowca;
+    }
+
+    public long getKierunek_id() {
         return kierunek_id;
     }
 
-    public void setId(long kierunek_id) {
+    public void setKierunek_id(long kierunek_id) {
         this.kierunek_id = kierunek_id;
     }
 
-    public String getnazwa() {
+    public String getNazwa() {
         return nazwa;
     }
 
-    public void setnazwa(String nazwa) {
+    public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
 
-    public String getopis() {
+    public String getOpis() {
         return opis;
     }
 
-    public void setopis(String opis) {
+    public void setOpis(String opis) {
         this.opis = opis;
     }
-    public String getstopien(){
+
+    public String getStopien() {
         return stopien;
     }
-    public void setstopien(String stopien){
+
+    public void setStopien(String stopien) {
         this.stopien = stopien;
     }
-    public int getsets(){
+
+    public int getSets() {
         return sets;
     }
-    public void setsets(int sets){
+
+    public void setSets(int sets) {
         this.sets = sets;
     }
-    
+
+    public List<Student> getStudents() {
+        return Students;
+    }
+
+    public void setStudents(List<Student> Students) {
+        this.Students = Students;
+    }
+
+    public List<Przedmiot> getPrzedmiot() {
+        return Przedmiot;
+    }
+
+    public void setPrzedmiot(List<Przedmiot> Przedmiot) {
+        this.Przedmiot = Przedmiot;
+    }
+
+    public List<Wykladowca> getWykladowca() {
+        return Wykladowca;
+    }
+
+    public void setWykladowca(List<Wykladowca> Wykladowca) {
+        this.Wykladowca = Wykladowca;
+    }
+
+ 
 }

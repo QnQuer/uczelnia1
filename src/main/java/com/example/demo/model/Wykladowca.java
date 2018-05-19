@@ -15,25 +15,35 @@ public class Wykladowca {
     private String kod;
     private String miasto;
     private String e_mail;
-  
+    @OneToMany
+    @JoinColumn(name = "wykladowca_id")
+    private List<Student> Students;
+    @OneToMany
+    @JoinColumn(name = "wykladowca_id")
+    private List<Przedmiot> Przedmiot;
+    @ManyToOne 
+    private Kierunek kierunek;
+
     public Wykladowca() {
     }
 
-    public Wykladowca(Long wykladowca_id, String nazwisko,String imie,String kod, String miasto, String e_mail){ //Author author, String publisher, int year) {
+    public Wykladowca(Long wykladowca_id, String nazwisko, String imie, String kod, String miasto, String e_mail, List<Student> Students, List<Przedmiot> Przedmiot, Kierunek kierunek) {
         this.wykladowca_id = wykladowca_id;
         this.nazwisko = nazwisko;
         this.imie = imie;
         this.kod = kod;
         this.miasto = miasto;
         this.e_mail = e_mail;
-        
+        this.Students = Students;
+        this.Przedmiot = Przedmiot;
+        this.kierunek = kierunek;
     }
 
-    public Long getId() {
+    public Long getWykladowca_id() {
         return wykladowca_id;
     }
 
-    public void setId(Long id) {
+    public void setWykladowca_id(Long wykladowca_id) {
         this.wykladowca_id = wykladowca_id;
     }
 
@@ -68,11 +78,37 @@ public class Wykladowca {
     public void setMiasto(String miasto) {
         this.miasto = miasto;
     }
-     public String getE_mail() {
+
+    public String getE_mail() {
         return e_mail;
     }
 
     public void setE_mail(String e_mail) {
         this.e_mail = e_mail;
     }
+
+    public List<Student> getStudents() {
+        return Students;
+    }
+
+    public void setStudents(List<Student> Students) {
+        this.Students = Students;
+    }
+
+    public List<Przedmiot> getPrzedmiot() {
+        return Przedmiot;
+    }
+
+    public void setPrzedmiot(List<Przedmiot> Przedmiot) {
+        this.Przedmiot = Przedmiot;
+    }
+
+    public Kierunek getKierunek() {
+        return kierunek;
+    }
+
+    public void setKierunek(Kierunek kierunek) {
+        this.kierunek = kierunek;
+    }
+    
 }
