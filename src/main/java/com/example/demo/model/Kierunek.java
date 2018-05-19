@@ -10,7 +10,7 @@ import java.util.List;
  * @Entity mean this class is database entity and will be mapped into database table
  */
 @Entity
-public class Kierunki {
+public class Kierunek {
 
     /**
      * Primary Key of Accounts table
@@ -31,7 +31,7 @@ public class Kierunki {
     //@ManyToMany
     /*private List<Rent> listOfRents;*/
 
-    public Kierunki(String nazwa, String opis, String stopien, int sets) {
+    public Kierunek(String nazwa, String opis, String stopien, int sets) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.stopien = stopien;
@@ -39,9 +39,14 @@ public class Kierunki {
         
     }
 
-    public Kierunki() {
+    public Kierunek() {
     }
-
+ @OneToMany
+    @JoinColumn(name = "kierunek_id")
+    private List<Student> Students;
+  @OneToMany
+    @JoinColumn(name = "kierunek_id")
+    private List<Przedmiot> Przedmiot;
  /*   public List<Rent> getListOfRents() {
         return listOfRents;
     }*/

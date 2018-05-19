@@ -3,14 +3,15 @@ package com.example.demo.model;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by mchyl on 18/05/2018.
- */
+
+
 @Entity
-public class Studenci {
+public class Student {
 
     @Id
     @GeneratedValue
+    @ManyToOne
+    private Kierunek kierunek;
     private Long student_id;
     private String imie;
     private String nazwisko;
@@ -26,10 +27,10 @@ public class Studenci {
     
     
 
-     public Studenci() {
+     public Student() {
     }
-
-    public Studenci (Long student_id, String imie, String nazwisko, String data_ur, String miejsce, String pesel , String kod , String miasto, String ulica, String numer, String tel, String e_mail/* ,List<Book> listOfAuthorBooks*/) {
+    
+    public Student (Long student_id, String imie, String nazwisko, String data_ur, String miejsce, String pesel , String kod , String miasto, String ulica, String numer, String tel, String e_mail/* ,List<Book> listOfAuthorBooks*/) {
         this.student_id = student_id;
         this.imie = imie;
         this.nazwisko= nazwisko;
@@ -45,7 +46,7 @@ public class Studenci {
         
     }
 
-    public Studenci(String imie, String nazwisko, String data_ur, String miejsce, String pesel , String kod , String miasto, String ulica, String numer, String tel, String e_mail) {
+    public Student(String imie, String nazwisko, String data_ur, String miejsce, String pesel , String kod , String miasto, String ulica, String numer, String tel, String e_mail) {
         this.imie = imie;      
         this.nazwisko= nazwisko;
         this.data_ur = data_ur;

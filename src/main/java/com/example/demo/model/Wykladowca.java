@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlIDREF;
 import java.util.List;
 
 @Entity
-public class Wykladowcy {
+public class Wykladowca {
 
     @Id
     @GeneratedValue
@@ -23,10 +23,10 @@ public class Wykladowcy {
     @ManyToMany
     private List<Rent> accounts;*/
 
-    public Wykladowcy() {
+    public Wykladowca() {
     }
 
-    public Wykladowcy(Long wykladowca_id, String nazwisko,String imie,String kod, String miasto, String e_mail){ //Author author, String publisher, int year) {
+    public Wykladowca(Long wykladowca_id, String nazwisko,String imie,String kod, String miasto, String e_mail){ //Author author, String publisher, int year) {
         this.wykladowca_id = wykladowca_id;
         this.nazwisko = nazwisko;
         this.imie = imie;

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Przedmioty {
+public class Przedmiot {
 
     @Id
     @GeneratedValue
@@ -18,10 +18,10 @@ public class Przedmioty {
     @JoinColumn(name = "author_id")
     private List<Book> listOfAuthorBooks;*/
 
-    public Przedmioty() {
+    public Przedmiot() {
     }
 
-    public Przedmioty (Long przedmiot_id, String nazwa, String opis, String rodzaj, int ects/* ,List<Book> listOfAuthorBooks*/) {
+    public Przedmiot (Long przedmiot_id, String nazwa, String opis, String rodzaj, int ects/* ,List<Book> listOfAuthorBooks*/) {
         this.przedmiot_id = przedmiot_id;
         this.nazwa = nazwa;
         this.opis = opis;
@@ -30,7 +30,7 @@ public class Przedmioty {
         //this.listOfAuthorBooks = listOfAuthorBooks;
     }
 
-    public Przedmioty(String nazwa, String opis, String rodzaj, int ects) {
+    public Przedmiot(String nazwa, String opis, String rodzaj, int ects) {
         this.nazwa = nazwa;
         this.opis = opis;
         this.rodzaj = rodzaj;
