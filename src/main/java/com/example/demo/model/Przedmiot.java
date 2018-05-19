@@ -82,11 +82,11 @@ public class Przedmiot {
 
 
 
-   /* public List<Book> getListOfAuthorBooks() {
+  private List<Przedmiot> getListOfAuthorBooks() {
         return listOfAuthorBooks;
     }
 
     public void setListOfAuthorBooks(List<Book> listOfAuthorBooks) {
         this.listOfAuthorBooks = listOfAuthorBooks;
-    }*/
+    }
 }
