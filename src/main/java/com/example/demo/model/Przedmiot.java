@@ -8,15 +8,16 @@ public class Przedmiot {
 
     @Id
     @GeneratedValue
+     @ManyToOne
+    private Kierunek kierunek;
     private Long przedmiot_id;
     private String nazwa;
     private String opis;
     private String rodzaj;
     private int ects;
+    @ManyToMany
+    
 
- /* @OneToMany
-    @JoinColumn(name = "author_id")
-    private List<Book> listOfAuthorBooks;*/
 
     public Przedmiot() {
     }
