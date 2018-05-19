@@ -16,11 +16,13 @@ public class Przedmiot {
     @ManyToOne
     private Kierunek kierunek;
     @ManyToMany
+    
     @JoinTable(
         name = "Przedmiot_Student", 
         joinColumns = { @JoinColumn(name = "przedmiot_id") }, 
         inverseJoinColumns = { @JoinColumn(name = "student_id") }
     )
+    private List<Student> studenci;
 
 
     public Przedmiot() {
