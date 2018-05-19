@@ -25,11 +25,7 @@ public class Kierunek {
     private String stopien;
     private int sets;
 
-    /**
-     * Relation to table rents
-     */
-    //@ManyToMany
-    /*private List<Rent> listOfRents;*/
+ 
 
     public Kierunek(String nazwa, String opis, String stopien, int sets) {
         this.nazwa = nazwa;
@@ -47,13 +43,7 @@ public class Kierunek {
   @OneToMany
     @JoinColumn(name = "kierunek_id")
     private List<Przedmiot> Przedmiot;
- /*   public List<Rent> getListOfRents() {
-        return listOfRents;
-    }*/
 
-    /*public void setListOfRents(List<Rent> listOfRents) {
-        this.listOfRents = listOfRents;
-    }*/
 
     public long getkierunek_id() {
         return kierunek_id;

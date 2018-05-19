@@ -10,8 +10,6 @@ public class Student {
 
     @Id
     @GeneratedValue
-    @ManyToOne
-    private Kierunek kierunek;
     private Long student_id;
     private String imie;
     private String nazwisko;
@@ -24,8 +22,11 @@ public class Student {
     private String numer;
     private String tel;
     private String e_mail;
+    @ManyToOne
+    private Kierunek kierunek;
     
-    
+    @ManyToMany(mappedBy = "studenci")
+    private List<Przedmiot> przedmioty;
 
      public Student() {
     }

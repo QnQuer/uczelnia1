@@ -15,14 +15,7 @@ public class Wykladowca {
     private String kod;
     private String miasto;
     private String e_mail;
-   /* @ManyToOne
-    private Author author;
-    private String publisher;
-    private int year;
-
-    @ManyToMany
-    private List<Rent> accounts;*/
-
+  
     public Wykladowca() {
     }
 
@@ -33,9 +26,7 @@ public class Wykladowca {
         this.kod = kod;
         this.miasto = miasto;
         this.e_mail = e_mail;
-        //this.author = author;
-        //this.publisher = publisher;
-       // this.year = year;
+        
     }
 
     public Long getId() {
