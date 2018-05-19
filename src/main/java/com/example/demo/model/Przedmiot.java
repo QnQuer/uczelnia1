@@ -5,10 +5,10 @@ import java.util.List;
 
 @Entity
 public class Przedmiot {
-
+     
     @Id
     @GeneratedValue
-     @ManyToOne
+   
     private Kierunek kierunek;
     private Long przedmiot_id;
     private String nazwa;
@@ -16,6 +16,8 @@ public class Przedmiot {
     private String rodzaj;
     private int ects;
     @ManyToMany
+    @JoinColumn(name = "przedmiot_id")
+    private List<Student> Students;
     
 
 
