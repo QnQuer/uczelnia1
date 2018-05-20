@@ -33,14 +33,14 @@ public class Wykladowca {
     public Wykladowca() {
     }
 
-    public Wykladowca(Long wykladowca_id, String nazwisko, String imie, String kod, String miasto, String e_mail, List<Student> Students, List<Przedmiot> Przedmiot, Kierunek kierunek) {
+    public Wykladowca(Long wykladowca_id, String nazwisko, String imie, String kod, String miasto, String e_mail, List<Student> studenci, List<Przedmiot> Przedmiot, Kierunek kierunek) {
         this.wykladowca_id = wykladowca_id;
         this.nazwisko = nazwisko;
         this.imie = imie;
         this.kod = kod;
         this.miasto = miasto;
         this.e_mail = e_mail;
-        this.Students = Students;
+        this.studenci = studenci;
         this.Przedmiot = Przedmiot;
         this.kierunek = kierunek;
     }
@@ -93,12 +93,12 @@ public class Wykladowca {
         this.e_mail = e_mail;
     }
 
-    public List<Student> getStudents() {
-        return Students;
+    public List<Student> getStudenci() {
+        return studenci;
     }
 
-    public void setStudents(List<Student> Students) {
-        this.Students = Students;
+    public void setStudenci(List<Student> studenci) {
+        this.studenci = studenci;
     }
 
     public List<Przedmiot> getPrzedmiot() {
@@ -116,5 +116,9 @@ public class Wykladowca {
     public void setKierunek(Kierunek kierunek) {
         this.kierunek = kierunek;
     }
+
+  
+
+  
     
 }

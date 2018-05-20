@@ -156,14 +156,6 @@ public class Student {
         this.kierunek = kierunek;
     }
 
-    public Wykladowca getWykladowca() {
-        return Wykladowca;
-    }
-
-    public void setWykladowca(Wykladowca Wykladowca) {
-        this.Wykladowca = Wykladowca;
-    }
-
     public List<Przedmiot> getPrzedmioty() {
         return przedmioty;
     }
@@ -172,5 +164,14 @@ public class Student {
         this.przedmioty = przedmioty;
     }
 
+    public List<Wykladowca> getWykladowca() {
+        return Wykladowca;
+    }
+
+    public void setWykladowca(List<Wykladowca> Wykladowca) {
+        this.Wykladowca = Wykladowca;
+    }
+
+    
     
 }
