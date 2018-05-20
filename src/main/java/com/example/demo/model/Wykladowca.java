@@ -15,9 +15,15 @@ public class Wykladowca {
     private String kod;
     private String miasto;
     private String e_mail;
-    @OneToMany
+   /* @OneToMany
     @JoinColumn(name = "wykladowca_id")
-    private List<Student> Students;
+    private List<Student> Students;*/
+    @ManyToMany    
+    @JoinTable(
+        name = "Wykladowca_Student", 
+        joinColumns = { @JoinColumn(name = "wykladowca_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "student_id") })
+    private List<Student> studenci;
     @OneToMany
     @JoinColumn(name = "wykladowca_id")
     private List<Przedmiot> Przedmiot;

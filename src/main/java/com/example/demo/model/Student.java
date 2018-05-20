@@ -24,15 +24,17 @@ public class Student {
     private String e_mail;
     @ManyToOne
     private Kierunek kierunek;
-    @ManyToOne 
-    private Wykladowca Wykladowca;
+   /* @ManyToOne 
+    private Wykladowca Wykladowca;*/
     @ManyToMany(mappedBy = "studenci")
     private List<Przedmiot> przedmioty;
+    @ManyToMany(mappedBy = "studenci")
+    private List<Wykladowca> Wykladowca;
 
     public Student() {
     }
 
-    public Student(Long student_id, String imie, String nazwisko, String data_ur, String miejsce, String pesel, String kod, String miasto, String ulica, String numer, String tel, String e_mail, Kierunek kierunek, Wykladowca Wykladowca, List<Przedmiot> przedmioty) {
+    public Student(Long student_id, String imie, String nazwisko, String data_ur, String miejsce, String pesel, String kod, String miasto, String ulica, String numer, String tel, String e_mail, Kierunek kierunek, List<Wykladowca> Wykladowca, List<Przedmiot> przedmioty) {
         this.student_id = student_id;
         this.imie = imie;
         this.nazwisko = nazwisko;
