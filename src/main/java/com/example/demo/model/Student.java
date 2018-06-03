@@ -52,6 +52,7 @@ public class Student {
         this.przedmioty = przedmioty;
     }
 
+
     public Long getStudent_id() {
         return student_id;
     }
