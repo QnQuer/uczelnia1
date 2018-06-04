@@ -15,10 +15,10 @@ public class Wykladowca {
     private String kod;
     private String miasto;
     private String e_mail;
-   /* @OneToMany
+  /* @OneToMany
     @JoinColumn(name = "wykladowca_id")
     private List<Student> Students;*/
-    @ManyToMany    
+  @ManyToMany    
     @JoinTable(
         name = "Wykladowca_Student", 
         joinColumns = { @JoinColumn(name = "wykladowca_id") }, 

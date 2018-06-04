@@ -16,7 +16,7 @@ public class StudentView extends HorizontalLayout implements View {
     public Student updateObject;
       /**
      * Constructor called when we enter this site (fe. localhost:8080/#!AccountView)
-     * @param accountsRepository
+     * @param StudentRepository
      */
     @Autowired
     public StudentView(StudentRepository StudentRepository){
@@ -96,8 +96,92 @@ public class StudentView extends HorizontalLayout implements View {
                  } catch (Exception e) {
                 Notification.show(e.getClass().getImie(), e.getMessage(), Notification.Type.ERROR_MESSAGE);
                 e.printStackTrace();
-            }
+                 }
             
     });
+         deleteButton.addClickListener(click -> {
+            try {
+                if (grid.getSelectionModel().getFirstSelectedItem().isPresent()) {
+                    StudentRepository.deleteByStudent_id(grid.getSelectionModel().getFirstSelectedItem().get().getStudent_id());
+                    setGridElements(grid, StudentRepository.findAll());
+                    updateButton.setEnabled(false);
+                    deleteButton.setEnabled(false);
+                    imie.setValue("");
+                    nazwisko.setValue("");
+                    data_ur.setValue("");
+                    miejsce.setValue("");
+                    pesel.setValue("");
+                    kod.setValue("");
+                    miasto.setValue("");
+                    ulica.setValue("");
+                    numer.setValue("");
+                    tel.setValue("");
+                    e_mail.setValue("");
+                } else {
+                    Notification.show("Warning!", "You need select element from table!", Notification.Type.WARNING_MESSAGE);
+                }
+                 } catch (Exception e) {
+                Notification.show(e.getClass().getImie(), e.getMessage(), Notification.Type.ERROR_MESSAGE);
+                e.printStackTrace();
+            }
+        });
+         grid.addSelectionListener(item -> {
+            item.getFirstSelectedItem().ifPresent( selectedItem -> {
+                    updateButton.setEnabled(true);
+                    deleteButton.setEnabled(true);
+                    imie.setValue(selectedItem.getImie());
+                    nazwisko.setValue(selectedItem.getNazwisko());
+                    data_ur.setValue(selectedItem.getData_ur());
+                    miejsce.setValue(selectedItem.getMiejsce());
+                    pesel.setValue(selectedItem.getPesel());
+                    kod.setValue(selectedItem.getKod());
+                    miasto.setValue(selectedItem.getMiasto());
+                    ulica.setValue(selectedItem.getUlica());
+                    numer.setValue(selectedItem.getNumer());
+                    tel.setValue(selectedItem.getTel());
+                    e_mail.setValue(selectedItem.getE_mail());
+
+            });
+        });
+updateButton.addClickListener(click -> {
+
+            if (grid.getSelectionModel().getFirstSelectedItem().isPresent()) {
+                Student student = StudentRepository.findOneById(grid.getSelectionModel().getFirstSelectedItem().get().getStudent_id());
+                student.setImie(imie.getValue());
+                student.setNazwisko(nazwisko.getValue());
+                student.setData_ur(data_ur.getValue());
+                student.setMiejsce(miejsce.getValue());
+                student.setPesel(pesel.getValue());
+                student.setKod(kod.getValue());
+                student.setMiasto(miasto.getValue());
+                student.setUlica(ulica.getValue());
+                student.setNumer(numer.getValue());
+                student.setTel(tel.getValue());
+                student.setE_mail(e_mail.getValue());
+                
+                StudentRepository.save(student);
+                updateButton.setEnabled(false);
+                deleteButton.setEnabled(false);
+                setGridElements(grid, StudentRepository.findAll());
+                 imie.setValue("");
+                    nazwisko.setValue("");
+                    data_ur.setValue("");
+                    miejsce.setValue("");
+                    pesel.setValue("");
+                    kod.setValue("");
+                    miasto.setValue("");
+                    ulica.setValue("");
+                    numer.setValue("");
+                    tel.setValue("");
+                    e_mail.setValue("");
+            } else {
+                Notification.show("Something went wrong!");
+            }
+
+        });
 }
+
+    private void setGridElements(Grid grid, List<Student> studentList){
+        grid.setItems(studentList);
+    }
 }

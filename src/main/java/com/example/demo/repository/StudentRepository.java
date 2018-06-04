@@ -9,5 +9,7 @@ import java.util.List;
  * @author micha
  */
 public interface StudentRepository extends JpaRepository <Student, Long> {
+
+    public void deleteBystudent_id(Long student_id);
       
 }

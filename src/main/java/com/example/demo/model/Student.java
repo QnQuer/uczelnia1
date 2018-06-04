@@ -10,7 +10,7 @@ public class Student {
 
     @Id
     @GeneratedValue
-    private Long student_id;
+    private Long student_id ;
     private String imie;
     private String nazwisko;
     private String data_ur;
@@ -24,7 +24,7 @@ public class Student {
     private String e_mail;
     @ManyToOne
     private Kierunek kierunek;
-   /* @ManyToOne 
+    /*@ManyToOne 
     private Wykladowca Wykladowca;*/
     @ManyToMany(mappedBy = "studenci")
     private List<Przedmiot> przedmioty;
@@ -35,7 +35,7 @@ public class Student {
     }
 
     public Student(Long student_id, String imie, String nazwisko, String data_ur, String miejsce, String pesel, String kod, String miasto, String ulica, String numer, String tel, String e_mail, Kierunek kierunek, List<Wykladowca> Wykladowca, List<Przedmiot> przedmioty) {
-        this.student_id = student_id;
+        this.student_id  = student_id;
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.data_ur = data_ur;
@@ -52,9 +52,13 @@ public class Student {
         this.przedmioty = przedmioty;
     }
 
+    public Student(String value, String value0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     public Long getStudent_id() {
-        return student_id;
+        return student_id ;
     }
 
     public void setStudent_id(Long student_id) {
