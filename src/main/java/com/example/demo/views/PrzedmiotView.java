@@ -1,5 +1,5 @@
 /***/
-package com.example.demo.views;
+/*package com.example.demo.views;
 
 import com.example.demo.repository.PrzedmiotRepository;
 import com.example.demo.model.Przedmiot;
@@ -17,8 +17,8 @@ import java.util.List;
  * @author Mateusz
  */
 
-    @SpringUI
-public class PrzedmiotView extends HorizontalLayout implements View{
+/*    @SpringUI
+/*public class PrzedmiotView extends HorizontalLayout implements View{
     private final PrzedmiotRepository przedmiotRepository;
     public Przedmiot updateObject;
 
@@ -35,7 +35,7 @@ public class PrzedmiotView extends HorizontalLayout implements View{
         /**
          * We can find here objects wich are visible on site. Buttons etc.
          */
-        TextField przedmiot_id = new TextField();
+   /*     TextField przedmiot_id = new TextField();
         przedmiot_id.setPlaceholder("ID Przedmiotu");
         TextField nazwa = new TextField();
         nazwa.setPlaceholder("Nazwa");
@@ -75,20 +75,20 @@ public class PrzedmiotView extends HorizontalLayout implements View{
         grid.addColumn(Przedmiot::getStudenci).setCaption("Studenci");
         
 
-        VerticalLayout verticalLayout = new VerticalLayout();
+      /*  VerticalLayout verticalLayout = new VerticalLayout();
 
         HorizontalLayout horizontallAddAndDeleteButtonLayout = new HorizontalLayout();
         horizontallAddAndDeleteButtonLayout.addComponents(addButton, updateButton, deleteButton);
         verticalLayout.addComponents(horizontalTextFieldLayout, horizontallAddAndDeleteButtonLayout, grid);
 
-        setGridElements(grid, przedmiotRepository.findAll());
+       // setGridElements(grid, przedmiotRepository.findAll());
 
         /**
          * Example of listener on button.
          * Listener is a mechanism which listen events. If listener detect event, (in this example there is click event)
          * he will execute some code
          */
-        addButton.addClickListener((<any> click) -> {
+     /*  addButton.addClickListener((<any> click) -> {
 
             try {
                 /**
@@ -96,7 +96,7 @@ public class PrzedmiotView extends HorizontalLayout implements View{
                  * There will be created a new Account class object which is filled with values of texfield.
                  * We use repository to add object to database as a entity.
                  */
-                if (przedmiot_id.getValue().length() > 0 && nazwa.getValue().length() > 0 && opis.getValue().length() > 0 && rodzaj.getValue().length() > 0
+           /*     if (przedmiot_id.getValue().length() > 0 && nazwa.getValue().length() > 0 && opis.getValue().length() > 0 && rodzaj.getValue().length() > 0
                         && ects.getValue().length() > 0 && Wykladowca.getValue().length() > 0 && kierunek.getValue().length() > 0 && studenci.getValue().length() > 0) {
 
                     //We use repository to add object to database as a entity.
@@ -196,5 +196,4 @@ public class PrzedmiotView extends HorizontalLayout implements View{
     //@Override
     //public void enter(ViewChangeListener.ViewChangeEvent event) {
     //    Notification.show("Welcome to the Animal Farm");
-   
-}
+   */

@@ -56,6 +56,10 @@ public class Student {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public Student(String value, String value0, String value1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     public Long getStudent_id() {
         return student_id ;

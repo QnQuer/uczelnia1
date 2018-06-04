@@ -22,14 +22,14 @@ import org.springframework.stereotype.Component;
 public class MainUI extends UI {
 
 
-    @Autowired
+  /*  @Autowired
     KierunekRepository kierunekRepository;
     @Autowired
-    PrzedmiotRepository przedmiotRepository;
+    PrzedmiotRepository przedmiotRepository;*/
     @Autowired
-    StudentRepository studentRepository;
-    @Autowired
-    WykladowcaRepository wykladowcaRepository;
+    StudentRepository StudentRepository;
+   /* @Autowired
+    WykladowcaRepository wykladowcaRepository;*/
 
     /**
      * init is constructor like method which is called when we go to the main site (fe. localhost:8080).
@@ -100,9 +100,9 @@ public class MainUI extends UI {
          */
         Navigator navigator = new Navigator(this, viewContainer);
         navigator.addView("", DefaultView.class);
-        navigator.addView("AccountView", new StudentView(studentRepository));
-        navigator.addView("AuthorView", new KierunekView(kierunekRepository));
-        navigator.addView("BookView", new PrzedmiotView(przedmiotRepository/* authorsRepository*/));
-        navigator.addView("RentView", new WykladowcaView(/*booksRepository, accountsRepository, rentRepository*/wykladowcaRepository));
+        navigator.addView("AccountView", new StudentView(StudentRepository));
+     /*   navigator.addView("AuthorView", new KierunekView(kierunekRepository));
+        navigator.addView("BookView", new PrzedmiotView(przedmiotRepository/* authorsRepository*///));
+      //  navigator.addView("RentView", new WykladowcaView(/*booksRepository, accountsRepository, rentRepository*/wykladowcaRepository));
     }
 }
