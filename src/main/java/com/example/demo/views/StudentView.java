@@ -94,7 +94,7 @@ public class StudentView extends HorizontalLayout implements View {
                     Notification.show("Warning!", "You need fill all fields!", Notification.Type.WARNING_MESSAGE);
                 }
                  } catch (Exception e) {
-                Notification.show(e.getClass().getImie(), e.getMessage(), Notification.Type.ERROR_MESSAGE);
+                Notification.show(e.getClass().getName(), e.getMessage(), Notification.Type.ERROR_MESSAGE);
                 e.printStackTrace();
                  }
             
@@ -121,7 +121,7 @@ public class StudentView extends HorizontalLayout implements View {
                     Notification.show("Warning!", "You need select element from table!", Notification.Type.WARNING_MESSAGE);
                 }
                  } catch (Exception e) {
-                Notification.show(e.getClass().getImie(), e.getMessage(), Notification.Type.ERROR_MESSAGE);
+                Notification.show(e.getClass().getName(), e.getMessage(), Notification.Type.ERROR_MESSAGE);
                 e.printStackTrace();
             }
         });
@@ -146,7 +146,7 @@ public class StudentView extends HorizontalLayout implements View {
 updateButton.addClickListener(click -> {
 
             if (grid.getSelectionModel().getFirstSelectedItem().isPresent()) {
-                Student student = StudentRepository.findOneById(grid.getSelectionModel().getFirstSelectedItem().get().getStudent_id());
+                Student student = StudentRepository.findOneByStudent_id(grid.getSelectionModel().getFirstSelectedItem().get().getStudent_id());
                 student.setImie(imie.getValue());
                 student.setNazwisko(nazwisko.getValue());
                 student.setData_ur(data_ur.getValue());
