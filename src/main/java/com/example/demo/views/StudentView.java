@@ -56,7 +56,7 @@ public class StudentView extends HorizontalLayout implements View {
         deleteButton.setStyleName(ValoTheme.BUTTON_DANGER);
         deleteButton.setEnabled(false);
         Grid<Student> grid = new Grid<>();
-        grid.addColumn(Student::getStudent_id).setCaption("ID");
+        grid.addColumn(Student::getStudentId).setCaption("ID");
         grid.addColumn(Student::getImie).setCaption("Imie");
         grid.addColumn(Student::getNazwisko).setCaption("Nazwisko");
         grid.addColumn(Student::getData_ur).setCaption("Data urodzenia");
@@ -102,7 +102,7 @@ public class StudentView extends HorizontalLayout implements View {
          deleteButton.addClickListener(click -> {
             try {
                 if (grid.getSelectionModel().getFirstSelectedItem().isPresent()) {
-                    StudentRepository.deleteByStudent_id(grid.getSelectionModel().getFirstSelectedItem().get().getStudent_id());
+                    StudentRepository.deleteByStudentId(grid.getSelectionModel().getFirstSelectedItem().get().getStudentId());
                     setGridElements(grid, StudentRepository.findAll());
                     updateButton.setEnabled(false);
                     deleteButton.setEnabled(false);
@@ -146,7 +146,7 @@ public class StudentView extends HorizontalLayout implements View {
 updateButton.addClickListener(click -> {
 
             if (grid.getSelectionModel().getFirstSelectedItem().isPresent()) {
-                Student student = StudentRepository.findOneByStudent_id(grid.getSelectionModel().getFirstSelectedItem().get().getStudent_id());
+                Student student = StudentRepository.findOneByStudentId(grid.getSelectionModel().getFirstSelectedItem().get().getStudentId());
                 student.setImie(imie.getValue());
                 student.setNazwisko(nazwisko.getValue());
                 student.setData_ur(data_ur.getValue());

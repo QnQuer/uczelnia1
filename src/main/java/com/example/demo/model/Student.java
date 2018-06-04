@@ -10,7 +10,7 @@ public class Student {
 
     @Id
     @GeneratedValue
-    private Long student_id ;
+    private Long StudentId ;
     private String imie;
     private String nazwisko;
     private String data_ur;
@@ -34,8 +34,8 @@ public class Student {
     public Student() {
     }
 
-    public Student(Long student_id, String imie, String nazwisko, String data_ur, String miejsce, String pesel, String kod, String miasto, String ulica, String numer, String tel, String e_mail, Kierunek kierunek, List<Wykladowca> Wykladowca, List<Przedmiot> przedmioty) {
-        this.student_id  = student_id;
+    public Student(Long studentid, String imie, String nazwisko, String data_ur, String miejsce, String pesel, String kod, String miasto, String ulica, String numer, String tel, String e_mail, Kierunek kierunek, List<Wykladowca> Wykladowca, List<Przedmiot> przedmioty) {
+        this.StudentId  = studentid;
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.data_ur = data_ur;
@@ -60,13 +60,12 @@ public class Student {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
-    public Long getStudent_id() {
-        return student_id ;
+    public Long getStudentId() {
+        return StudentId;
     }
 
-    public void setStudent_id(Long student_id) {
-        this.student_id = student_id;
+    public void setStudentId(Long StudentId) {
+        this.StudentId = StudentId;
     }
 
     public String getImie() {
@@ -181,6 +180,11 @@ public class Student {
         this.Wykladowca = Wykladowca;
     }
 
+
+
+   
+
+   
     
     
 }

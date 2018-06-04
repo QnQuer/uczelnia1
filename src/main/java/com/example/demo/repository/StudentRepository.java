@@ -10,9 +10,13 @@ import java.util.List;
  */
 public interface StudentRepository extends JpaRepository <Student, Long> {
 
-    public void deleteByStudent_id(Long student_id);
+   
 
-    public Student findOneByStudent_id(Long student_id);
+  
+
+    public void deleteByStudentId(Long studentId);
+
+    public Student findOneByStudentId(Long studentId);
 
   
 }

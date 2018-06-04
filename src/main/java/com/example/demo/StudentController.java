@@ -13,7 +13,7 @@ import java.util.List;
  * This is spring rest controller witch is used to for example create web api used by multiple clients app.
  * For example we can create android/iOS app which will use this to communication with this app server and database.
  * example request localhost:8080/test/test will return String "hello"
- * localhost:8080/test/account/tom/jensen will create database entity in table accounts
+ * localhost:8080/test/account/tom/jensen will create database entity in table student
  */
 @RestController
 @RequestMapping("/test")
@@ -25,20 +25,20 @@ public class StudentController {
     }
 
     @Autowired
-   StudentRepository studentRepository;
+   StudentRepository StudentRepository;
 
     @RequestMapping("/account/{name}/{lastname}")
-    public String addAcount(@PathVariable String Imie, @PathVariable String Nazwisko){
+    public String addStudent(@PathVariable String Imie, @PathVariable String Nazwisko){
 
-        Student account = new Student(Imie, Nazwisko);
-        studentRepository.save(account);
+        Student student = new Student(Imie, Nazwisko);
+        StudentRepository.save(student);
 
 
         return "hello";
     }
 
-    @RequestMapping("/account/all")
+    @RequestMapping("/student/all")
     public List<Student> findAllStudent(){
-        return studentRepository.findAll();
+        return StudentRepository.findAll();
     }
 }

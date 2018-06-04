@@ -4,18 +4,11 @@ import javax.persistence.*;
 import java.util.List;
 
 
-/**
- * Class of user accounts
- *
- * @Entity mean this class is database entity and will be mapped into database table
- */
+
 @Entity
 public class Kierunek {
 
-    /**
-     * Primary Key of Accounts table
-     * @GeneratedValue mean this column will be autoincrement and we don't need to put this value into INSERT statement
-     */
+   
     @Id
     @GeneratedValue
     private long kierunek_id;
