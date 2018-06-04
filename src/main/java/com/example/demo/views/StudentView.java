@@ -84,14 +84,14 @@ public class StudentView extends HorizontalLayout implements View {
                  * There will be created a new Account class object which is filled with values of texfield.
                  * We use repository to add object to database as a entity.
                  */
-                if (imie.getValue().length() > 0 && nazwisko.getValue().length() > 0) {
+                if (imie.getValue().length() > 0 && nazwisko.getValue().length() > 0 && pesel.getValue().length() > 0) {
 
                     //We use repository to add object to database as a entity.
-                    Student Student = new Student(imie.getValue(), nazwisko.getValue());
+                    Student Student = new Student(imie.getValue(), nazwisko.getValue(), pesel.getValue());
                     StudentRepository.save(Student);
                     setGridElements(grid, StudentRepository.findAll());
                 } else {
-                    Notification.show("Warning!", "You need fill all fields!", Notification.Type.WARNING_MESSAGE);
+                    Notification.show("Warning!", "Uzupełnij imie, nazwisko i pesel", Notification.Type.WARNING_MESSAGE);
                 }
                  } catch (Exception e) {
                 Notification.show(e.getClass().getName(), e.getMessage(), Notification.Type.ERROR_MESSAGE);
