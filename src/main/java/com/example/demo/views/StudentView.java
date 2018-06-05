@@ -12,15 +12,15 @@ import java.util.List;
 @SpringUI
 public class StudentView extends HorizontalLayout implements View {
 
-    private final StudentRepository StudentRepository;
+    private final StudentRepository studentRepository;
     public Student updateObject;
       /**
      * Constructor called when we enter this site (fe. localhost:8080/#!AccountView)
-     * @param StudentRepository
+     * @param studentRepository
      */
     @Autowired
-    public StudentView(StudentRepository StudentRepository){
-        this.StudentRepository = StudentRepository;
+    public StudentView(StudentRepository studentRepository){
+        this.studentRepository = studentRepository;
         
         TextField imie = new TextField();
         imie.setPlaceholder("Imie");
@@ -74,7 +74,7 @@ public class StudentView extends HorizontalLayout implements View {
         horizontallAddAndDeleteButtonLayout.addComponents(addButton, updateButton, deleteButton);
         verticalLayout.addComponents(horizontalTextFieldLayout, horizontallAddAndDeleteButtonLayout, grid);
 
-        setGridElements(grid, StudentRepository.findAll());
+        setGridElements(grid, studentRepository.findAll());
        
         addButton.addClickListener(click -> {
 
@@ -88,8 +88,8 @@ public class StudentView extends HorizontalLayout implements View {
 
                     //We use repository to add object to database as a entity.
                     Student Student = new Student(imie.getValue(), nazwisko.getValue(), pesel.getValue());
-                    StudentRepository.save(Student);
-                    setGridElements(grid, StudentRepository.findAll());
+                    studentRepository.save(Student);
+                    setGridElements(grid, studentRepository.findAll());
                 } else {
                     Notification.show("Warning!", "Uzupełnij imie, nazwisko i pesel", Notification.Type.WARNING_MESSAGE);
                 }
@@ -102,8 +102,8 @@ public class StudentView extends HorizontalLayout implements View {
          deleteButton.addClickListener(click -> {
             try {
                 if (grid.getSelectionModel().getFirstSelectedItem().isPresent()) {
-                    StudentRepository.deleteByStudentId(grid.getSelectionModel().getFirstSelectedItem().get().getStudentId());
-                    setGridElements(grid, StudentRepository.findAll());
+                    studentRepository.delete(grid.getSelectionModel().getFirstSelectedItem().get().getStudentId());
+                    setGridElements(grid, studentRepository.findAll());
                     updateButton.setEnabled(false);
                     deleteButton.setEnabled(false);
                     imie.setValue("");
@@ -146,7 +146,7 @@ public class StudentView extends HorizontalLayout implements View {
 updateButton.addClickListener(click -> {
 
             if (grid.getSelectionModel().getFirstSelectedItem().isPresent()) {
-                Student student = StudentRepository.findOneByStudentId(grid.getSelectionModel().getFirstSelectedItem().get().getStudentId());
+                Student student = studentRepository.findOne(grid.getSelectionModel().getFirstSelectedItem().get().getStudentId());
                 student.setImie(imie.getValue());
                 student.setNazwisko(nazwisko.getValue());
                 student.setData_ur(data_ur.getValue());
@@ -159,10 +159,10 @@ updateButton.addClickListener(click -> {
                 student.setTel(tel.getValue());
                 student.setE_mail(e_mail.getValue());
                 
-                StudentRepository.save(student);
+                studentRepository.save(student);
                 updateButton.setEnabled(false);
                 deleteButton.setEnabled(false);
-                setGridElements(grid, StudentRepository.findAll());
+                setGridElements(grid, studentRepository.findAll());
                  imie.setValue("");
                     nazwisko.setValue("");
                     data_ur.setValue("");
