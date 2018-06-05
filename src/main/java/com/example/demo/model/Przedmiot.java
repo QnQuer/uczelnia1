@@ -8,7 +8,7 @@ public class Przedmiot {
      
     @Id
     @GeneratedValue
-    private Long przedmiot_id;
+    private Long przedmiotId;
     private String nazwa;
     private String opis;
     private String rodzaj;
@@ -20,7 +20,7 @@ public class Przedmiot {
     @ManyToMany    
     @JoinTable(
         name = "Przedmiot_Student", 
-        joinColumns = { @JoinColumn(name = "przedmiot_id") }, 
+        joinColumns = { @JoinColumn(name = "przedmiotId") }, 
         inverseJoinColumns = { @JoinColumn(name = "student_id") }
     )
     private List<Student> studenci;
@@ -28,8 +28,8 @@ public class Przedmiot {
     public Przedmiot() {
     }
 
-    public Przedmiot(Long przedmiot_id, String nazwa, String opis, String rodzaj, int ects, Wykladowca Wykladowca, Kierunek kierunek, List<Student> studenci) {
-        this.przedmiot_id = przedmiot_id;
+    public Przedmiot(Long przedmiotId, String nazwa, String opis, String rodzaj, int ects, Wykladowca Wykladowca, Kierunek kierunek, List<Student> studenci) {
+        this.przedmiotId = przedmiotId;
         this.nazwa = nazwa;
         this.opis = opis;
         this.rodzaj = rodzaj;
@@ -39,12 +39,12 @@ public class Przedmiot {
         this.studenci = studenci;
     }
 
-    public Long getPrzedmiot_id() {
-        return przedmiot_id;
+    public Long getPrzedmiotId() {
+        return przedmiotId;
     }
 
-    public void setPrzedmiot_id(Long przedmiot_id) {
-        this.przedmiot_id = przedmiot_id;
+    public void setPrzedmiotId(Long przedmiotId) {
+        this.przedmiotId = przedmiotId;
     }
 
     public String getNazwa() {

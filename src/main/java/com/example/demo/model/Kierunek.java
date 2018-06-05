@@ -11,7 +11,7 @@ public class Kierunek {
    
     @Id
     @GeneratedValue
-    private long kierunek_id;
+    private long kierunekId;
     private String nazwa;
     private String opis;
     private String stopien;
@@ -29,8 +29,8 @@ public class Kierunek {
     public Kierunek() {
     }
 
-    public Kierunek(long kierunek_id, String nazwa, String opis, String stopien, int sets, List<Student> Students, List<Przedmiot> Przedmiot, List<Wykladowca> Wykladowca) {
-        this.kierunek_id = kierunek_id;
+    public Kierunek(long kierunekId, String nazwa, String opis, String stopien, int sets, List<Student> Students, List<Przedmiot> Przedmiot, List<Wykladowca> Wykladowca) {
+        this.kierunekId = kierunekId;
         this.nazwa = nazwa;
         this.opis = opis;
         this.stopien = stopien;
@@ -40,12 +40,12 @@ public class Kierunek {
         this.Wykladowca = Wykladowca;
     }
 
-    public long getKierunek_id() {
-        return kierunek_id;
+    public long getKierunekId() {
+        return kierunekId;
     }
 
-    public void setKierunek_id(long kierunek_id) {
-        this.kierunek_id = kierunek_id;
+    public void setKierunekId(long kierunekId) {
+        this.kierunekId = kierunekId;
     }
 
     public String getNazwa() {
