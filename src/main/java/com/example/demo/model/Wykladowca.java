@@ -9,7 +9,7 @@ public class Wykladowca {
 
     @Id
     @GeneratedValue
-    private Long wykladowca_id;
+    private Long wykladowcaId;
     private String nazwisko;
     private String imie;
     private String kod;
@@ -34,7 +34,7 @@ public class Wykladowca {
     }
 
     public Wykladowca(Long wykladowca_id, String nazwisko, String imie, String kod, String miasto, String e_mail, List<Student> studenci, List<Przedmiot> Przedmiot, Kierunek kierunek) {
-        this.wykladowca_id = wykladowca_id;
+        this.wykladowcaId = wykladowcaId;
         this.nazwisko = nazwisko;
         this.imie = imie;
         this.kod = kod;
@@ -45,12 +45,12 @@ public class Wykladowca {
         this.kierunek = kierunek;
     }
 
-    public Long getWykladowca_id() {
-        return wykladowca_id;
+    public Long getWykladowcaId() {
+        return wykladowcaId;
     }
 
-    public void setWykladowca_id(Long wykladowca_id) {
-        this.wykladowca_id = wykladowca_id;
+    public void setWykladowcaId(Long wykladowcaId) {
+        this.wykladowcaId = wykladowcaId;
     }
 
     public String getNazwisko() {
