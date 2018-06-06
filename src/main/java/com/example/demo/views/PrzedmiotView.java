@@ -1,5 +1,5 @@
 /***/
-/*package com.example.demo.views;
+package com.example.demo.views;
 
 import com.example.demo.repository.PrzedmiotRepository;
 import com.example.demo.model.Przedmiot;
@@ -12,13 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 
-/**
- *
- * @author Mateusz
- */
-
-/*    @SpringUI
-/*public class PrzedmiotView extends HorizontalLayout implements View{
+    @SpringUI
+public class PrzedmiotView extends HorizontalLayout implements View{
     private final PrzedmiotRepository przedmiotRepository;
     public Przedmiot updateObject;
 
@@ -35,8 +30,8 @@ import java.util.List;
         /**
          * We can find here objects wich are visible on site. Buttons etc.
          */
-   /*     TextField przedmiot_id = new TextField();
-        przedmiot_id.setPlaceholder("ID Przedmiotu");
+        TextField przedmiotId = new TextField();
+        przedmiotId.setPlaceholder("ID Przedmiotu");
         TextField nazwa = new TextField();
         nazwa.setPlaceholder("Nazwa");
         TextField opis = new TextField();
@@ -54,7 +49,7 @@ import java.util.List;
         
 
         HorizontalLayout horizontalTextFieldLayout = new HorizontalLayout();
-        horizontalTextFieldLayout.addComponents(przedmiot_id, nazwa, opis, rodzaj, ects, Wykladowca, kierunek, studenci);
+        horizontalTextFieldLayout.addComponents(przedmiotId, nazwa, opis, rodzaj, ects, Wykladowca, kierunek, studenci);
 
         Button addButton = new Button("Add");
         Button updateButton = new Button("Update");
@@ -65,18 +60,17 @@ import java.util.List;
         deleteButton.setStyleName(ValoTheme.BUTTON_DANGER);
         deleteButton.setEnabled(false);
         Grid<Przedmiot> grid = new Grid<>();
-        grid.addColumn(Przedmiot::getPrzedmiot_id).setCaption("ID Przedmiotu");
+        grid.addColumn(Przedmiot::getPrzedmiotId).setCaption("ID Przedmiotu");
         grid.addColumn(Przedmiot::getNazwa).setCaption("Nazwa");
         grid.addColumn(Przedmiot::getOpis).setCaption("Opis");
         grid.addColumn(Przedmiot::getRodzaj).setCaption("Rodzaj");
         grid.addColumn(Przedmiot::getEcts).setCaption("ECTS");
         grid.addColumn(Przedmiot::getWykladowca).setCaption("Wykladowca");
         grid.addColumn(Przedmiot::getKierunek).setCaption("Kierunek");
-        grid.addColumn(Przedmiot::getStudenci).setCaption("Studenci");
+      
         
 
-      /*  VerticalLayout verticalLayout = new VerticalLayout();
-
+      VerticalLayout verticalLayout = new VerticalLayout();
         HorizontalLayout horizontallAddAndDeleteButtonLayout = new HorizontalLayout();
         horizontallAddAndDeleteButtonLayout.addComponents(addButton, updateButton, deleteButton);
         verticalLayout.addComponents(horizontalTextFieldLayout, horizontallAddAndDeleteButtonLayout, grid);
@@ -88,15 +82,15 @@ import java.util.List;
          * Listener is a mechanism which listen events. If listener detect event, (in this example there is click event)
          * he will execute some code
          */
-     /*  addButton.addClickListener((<any> click) -> {
+   /*  addButton.addClickListener((<any> click) -> {
 
             try {
                 /**
                  * If values at textfield are > 0 which mean there is something more than null or ""
                  * There will be created a new Account class object which is filled with values of texfield.
                  * We use repository to add object to database as a entity.
-                 */
-           /*     if (przedmiot_id.getValue().length() > 0 && nazwa.getValue().length() > 0 && opis.getValue().length() > 0 && rodzaj.getValue().length() > 0
+                
+               if (przedmiot_id.getValue().length() > 0 && nazwa.getValue().length() > 0 && opis.getValue().length() > 0 && rodzaj.getValue().length() > 0
                         && ects.getValue().length() > 0 && Wykladowca.getValue().length() > 0 && kierunek.getValue().length() > 0 && studenci.getValue().length() > 0) {
 
                     //We use repository to add object to database as a entity.
@@ -187,13 +181,13 @@ import java.util.List;
         //horizontalLayout.addComponents();
 
         //setComponentAlignment(verticalLayout, Alignment.TOP_LEFT);
-    }
+    }*/
 
     public void setGridElements(Grid grid, List<Przedmiot> przedmiotList) {
         grid.setItems(przedmiotList);
     }
 
-    //@Override
-    //public void enter(ViewChangeListener.ViewChangeEvent event) {
-    //    Notification.show("Welcome to the Animal Farm");
-   */
+@Override
+  public void enter(ViewChangeListener.ViewChangeEvent event) {
+      Notification.show("Welcome to the Animal Farm");
+ 
