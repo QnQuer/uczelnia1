@@ -22,15 +22,15 @@ import org.springframework.stereotype.Component;
 public class MainUI extends UI {
 
 
-  /*  @Autowired
-    KierunekRepository kierunekRepository;
+  
     @Autowired
-    PrzedmiotRepository przedmiotRepository;*/
+    PrzedmiotRepository PrzedmiotRepository;
     @Autowired
     StudentRepository StudentRepository;
-   /* @Autowired
-    WykladowcaRepository wykladowcaRepository;*/
-
+    @Autowired
+    WykladowcaRepository WykladowcaRepository;
+    @Autowired
+    KierunekRepository KierunekRepository;
     /**
      * init is constructor like method which is called when we go to the main site (fe. localhost:8080).
      * There is initialization of menu objects etc.
@@ -51,14 +51,15 @@ public class MainUI extends UI {
         /**
          * Buttons in menu on left side of site.
          */
-        Button buttonView1 = new Button("Account View", e -> getNavigator().navigateTo("AccountView"));
+        Button buttonView1 = new Button("Student View", e -> getNavigator().navigateTo("StudentView"));
         buttonView1.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
-        Button buttonView2 = new Button("Author View",  e -> getNavigator().navigateTo("AuthorView"));
+        Button buttonView2 = new Button("Kierunek View",  e -> getNavigator().navigateTo("KierunekView"));
         buttonView2.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
-        Button buttonView3 = new Button("Book View",  e -> getNavigator().navigateTo("BookView"));
+        Button buttonView3 = new Button("Przedmiot View",  e -> getNavigator().navigateTo("PrzedmiotView"));
         buttonView3.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
-        Button buttonView4 = new Button("Rent View",  e -> getNavigator().navigateTo("RentView"));
+        Button buttonView4 = new Button("Wykladowca View",  e -> getNavigator().navigateTo("WykladowcaView"));
         buttonView4.addStyleNames(ValoTheme.BUTTON_LINK, ValoTheme.MENU_ITEM);
+        
 
         CssLayout menu = new CssLayout(title, buttonView1, buttonView2, buttonView3, buttonView4);
         menu.addStyleName(ValoTheme.MENU_ROOT);
@@ -100,9 +101,9 @@ public class MainUI extends UI {
          */
         Navigator navigator = new Navigator(this, viewContainer);
         navigator.addView("", DefaultView.class);
-        navigator.addView("AccountView", new StudentView(StudentRepository));
-     /*   navigator.addView("AuthorView", new KierunekView(kierunekRepository));
-        navigator.addView("BookView", new PrzedmiotView(przedmiotRepository/* authorsRepository*///));
-      //  navigator.addView("RentView", new WykladowcaView(/*booksRepository, accountsRepository, rentRepository*/wykladowcaRepository));
+        navigator.addView("StudentView", new StudentView(StudentRepository));
+        navigator.addView("KierunekView", new KierunekView(KierunekRepository));
+        navigator.addView("PrzedmiotView", new PrzedmiotView(PrzedmiotRepository));
+        navigator.addView("WykladowcaView", new WykladowcaView(WykladowcaRepository));
     }
 }

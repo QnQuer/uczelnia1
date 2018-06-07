@@ -21,11 +21,11 @@ public class Wykladowca {
   @ManyToMany    
     @JoinTable(
         name = "Wykladowca_Student", 
-        joinColumns = { @JoinColumn(name = "wykladowca_id") }, 
-        inverseJoinColumns = { @JoinColumn(name = "student_id") })
+        joinColumns = { @JoinColumn(name = "wykladowcaId") }, 
+        inverseJoinColumns = { @JoinColumn(name = "studentId") })
     private List<Student> studenci;
     @OneToMany
-    @JoinColumn(name = "wykladowca_id")
+    @JoinColumn(name = "wykladowcaId")
     private List<Przedmiot> Przedmiot;
     @ManyToOne
     private Kierunek kierunek;
@@ -44,6 +44,16 @@ public class Wykladowca {
         this.Przedmiot = Przedmiot;
         this.kierunek = kierunek;
     }
+
+    public Wykladowca(String Imie, String Nazwisko, String Kod, String Miasto, String E_mail) {
+       this.imie = Imie;
+       this.nazwisko = Nazwisko;
+       this.kod = Kod;
+       this.miasto = Miasto;
+       this.e_mail = E_mail;
+    }
+
+   
 
     public Long getWykladowcaId() {
         return wykladowcaId;

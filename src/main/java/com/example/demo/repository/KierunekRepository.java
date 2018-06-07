@@ -9,4 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 public interface KierunekRepository extends JpaRepository <Kierunek, Long> {
+   
+    public Kierunek findOneByKierunekId(Long id);
 }

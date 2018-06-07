@@ -10,7 +10,7 @@ public class Student {
 
     @Id
     @GeneratedValue
-    private Long StudentId ;
+    private Long studentId;
     private String imie;
     private String nazwisko;
     private String data_ur;
@@ -35,7 +35,7 @@ public class Student {
     }
 
     public Student(Long studentid, String imie, String nazwisko, String data_ur, String miejsce, String pesel, String kod, String miasto, String ulica, String numer, String tel, String e_mail, Kierunek kierunek, List<Wykladowca> Wykladowca, List<Przedmiot> przedmioty) {
-        this.StudentId  = studentid;
+        this.studentId = studentid;
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.data_ur = data_ur;
@@ -52,20 +52,44 @@ public class Student {
         this.przedmioty = przedmioty;
     }
 
-    public Student(String value, String value0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //public Student(String value, String value0, String value1) {
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+  //  }
+
+    public Student(String Imie, String Nazwisko, String Data_ur, String Miejsce, String Pesel, String Kod, String Miasto, String Ulica, String Numer, String Tel, String E_mail) {
+        this.imie = Imie;
+        this.nazwisko = Nazwisko;
+        this.data_ur = Data_ur;
+        this.miejsce = Miejsce;
+        this.pesel =Pesel;
+        this.kod = Kod;
+        this.miasto = Miasto;
+        this.ulica = Ulica;
+        this.numer = Numer;
+        this.tel = Tel;
+        this.e_mail = E_mail;
+      
     }
 
-    public Student(String value, String value0, String value1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Student( String Imie, String Nazwisko, String Pesel) {
+        this.imie = Imie;
+        this.nazwisko = Nazwisko;
+        this.pesel =Pesel;
+        
     }
+
+   
+
+  
+
+
 
     public Long getStudentId() {
-        return StudentId;
+        return studentId;
     }
 
     public void setStudentId(Long StudentId) {
-        this.StudentId = StudentId;
+        this.studentId = StudentId;
     }
 
     public String getImie() {

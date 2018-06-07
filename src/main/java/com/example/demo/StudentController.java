@@ -28,9 +28,9 @@ public class StudentController {
    StudentRepository StudentRepository;
 
     @RequestMapping("/account/{name}/{lastname}")
-    public String addStudent(@PathVariable String Imie, @PathVariable String Nazwisko){
+    public String addStudent(@PathVariable String Imie, @PathVariable String Nazwisko, @PathVariable String Pesel){
 
-        Student student = new Student(Imie, Nazwisko);
+        Student student = new Student(Imie, Nazwisko, Pesel);
         StudentRepository.save(student);
 
 

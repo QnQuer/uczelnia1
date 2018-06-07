@@ -12,7 +12,7 @@ public class Przedmiot {
     private String nazwa;
     private String opis;
     private String rodzaj;
-    private int ects;
+    private String ects;
     @ManyToOne
     private Wykladowca Wykladowca;
     @ManyToOne
@@ -21,14 +21,14 @@ public class Przedmiot {
     @JoinTable(
         name = "Przedmiot_Student", 
         joinColumns = { @JoinColumn(name = "przedmiotId") }, 
-        inverseJoinColumns = { @JoinColumn(name = "student_id") }
+        inverseJoinColumns = { @JoinColumn(name = "StudentId") }
     )
     private List<Student> studenci;
 
     public Przedmiot() {
     }
 
-    public Przedmiot(Long przedmiotId, String nazwa, String opis, String rodzaj, int ects, Wykladowca Wykladowca, Kierunek kierunek, List<Student> studenci) {
+    public Przedmiot(Long przedmiotId, String nazwa, String opis, String rodzaj, String ects, Wykladowca Wykladowca, Kierunek kierunek, List<Student> studenci) {
         this.przedmiotId = przedmiotId;
         this.nazwa = nazwa;
         this.opis = opis;
@@ -37,6 +37,15 @@ public class Przedmiot {
         this.Wykladowca = Wykladowca;
         this.kierunek = kierunek;
         this.studenci = studenci;
+    }
+
+   
+
+    public Przedmiot(String Nazwa, String Opis, String Rodzaj, String Ects) {
+        this.nazwa = Nazwa;
+        this.opis = Opis;
+        this.rodzaj = Rodzaj;
+        this.ects = Ects;
     }
 
     public Long getPrzedmiotId() {
@@ -71,11 +80,11 @@ public class Przedmiot {
         this.rodzaj = rodzaj;
     }
 
-    public int getEcts() {
+    public String getEcts() {
         return ects;
     }
 
-    public void setEcts(int ects) {
+    public void setEcts(String ects) {
         this.ects = ects;
     }
 

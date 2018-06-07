@@ -15,21 +15,21 @@ public class Kierunek {
     private String nazwa;
     private String opis;
     private String stopien;
-    private int sets;
+    private String sets;
     @OneToMany
-    @JoinColumn(name = "kierunek_id")
+    @JoinColumn(name = "kierunekId")
     private List<Student> Students;
     @OneToMany
-    @JoinColumn(name = "kierunek_id")
+    @JoinColumn(name = "kierunekId")
     private List<Przedmiot> Przedmiot;
     @OneToMany
-    @JoinColumn(name = "kierunek_id")
+    @JoinColumn(name = "kierunekId")
     private List<Wykladowca> Wykladowca;
 
     public Kierunek() {
     }
 
-    public Kierunek(long kierunekId, String nazwa, String opis, String stopien, int sets, List<Student> Students, List<Przedmiot> Przedmiot, List<Wykladowca> Wykladowca) {
+    public Kierunek(long kierunekId, String nazwa, String opis, String stopien, String sets, List<Student> Students, List<Przedmiot> Przedmiot, List<Wykladowca> Wykladowca) {
         this.kierunekId = kierunekId;
         this.nazwa = nazwa;
         this.opis = opis;
@@ -38,6 +38,13 @@ public class Kierunek {
         this.Students = Students;
         this.Przedmiot = Przedmiot;
         this.Wykladowca = Wykladowca;
+    }
+
+    public Kierunek(String Nazwa, String Opis, String Stopien, String Sets) {
+        this.nazwa = Nazwa;
+        this.opis = Opis;
+        this.stopien = Stopien;
+        this.sets = Sets;
     }
 
     public long getKierunekId() {
@@ -72,11 +79,11 @@ public class Kierunek {
         this.stopien = stopien;
     }
 
-    public int getSets() {
+    public String getSets() {
         return sets;
     }
 
-    public void setSets(int sets) {
+    public void setSets(String sets) {
         this.sets = sets;
     }
 
