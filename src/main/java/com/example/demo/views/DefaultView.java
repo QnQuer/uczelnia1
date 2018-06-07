@@ -10,6 +10,6 @@ import com.vaadin.ui.Label;
 public class DefaultView extends Composite implements View {
 
     public DefaultView(){
-        setCompositionRoot(new Label("This is default view"));
+        setCompositionRoot(new Label("Wykonał Michał Piekarski i Mateusz Dziuban"));
     }
 }
