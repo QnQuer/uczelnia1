@@ -52,9 +52,7 @@ public class Student {
         this.przedmioty = przedmioty;
     }
 
-    //public Student(String value, String value0, String value1) {
-    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-  //  }
+  
 
     public Student(String Imie, String Nazwisko, String Data_ur, String Miejsce, String Pesel, String Kod, String Miasto, String Ulica, String Numer, String Tel, String E_mail) {
         this.imie = Imie;

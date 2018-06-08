@@ -29,14 +29,14 @@ public class KierunekView extends HorizontalLayout implements View {
         
         this.kierunekRepository = kierunekRepository;
         
-         TextField nazwa = new TextField();
+        TextField nazwa = new TextField();
         nazwa.setPlaceholder("Nazwa");
          TextField opis = new TextField();
         opis.setPlaceholder("Opis");
          TextField stopien = new TextField();
         stopien.setPlaceholder("Stopien");
          TextField sets = new TextField();
-        sets.setPlaceholder("ECTS");
+        sets.setPlaceholder("ECTS"); 
 
         HorizontalLayout horizontalTextFieldLayout = new HorizontalLayout();
         horizontalTextFieldLayout.addComponents(nazwa, opis, stopien, sets);
@@ -75,7 +75,7 @@ public class KierunekView extends HorizontalLayout implements View {
                 if (nazwa.getValue().length() > 0 && stopien.getValue().length() > 0 && sets.getValue().length() > 0) {
 
                     //We use repository to add object to database as a entity.
-                    Kierunek Kierunek = new Kierunek(nazwa.getValue(), stopien.getValue(), opis.getValue(), sets.getValue());
+                    Kierunek Kierunek = new Kierunek(nazwa.getValue(), stopien.getValue(),  sets.getValue());
                     kierunekRepository.save(Kierunek);
                     setGridElements(grid, kierunekRepository.findAll());
                 } else {

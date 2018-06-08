@@ -40,12 +40,14 @@ public class Kierunek {
         this.Wykladowca = Wykladowca;
     }
 
-    public Kierunek(String Nazwa, String Opis, String Stopien, String Sets) {
+    public Kierunek(String Nazwa,  String Stopien, String Sets) {
         this.nazwa = Nazwa;
-        this.opis = Opis;
+        
         this.stopien = Stopien;
         this.sets = Sets;
     }
+
+    
 
     public long getKierunekId() {
         return kierunekId;

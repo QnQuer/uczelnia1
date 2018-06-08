@@ -59,11 +59,14 @@ public class StudentView extends HorizontalLayout implements View {
         Button addButton = new Button("Add");
         Button updateButton = new Button("Update");
         Button deleteButton = new Button("Delete");
+        Button deleteallButton = new Button("Delete All");
         addButton.setStyleName(ValoTheme.BUTTON_PRIMARY);
         updateButton.setStyleName(ValoTheme.BUTTON_FRIENDLY);
         updateButton.setEnabled(false);
         deleteButton.setStyleName(ValoTheme.BUTTON_DANGER);
         deleteButton.setEnabled(false);
+        deleteallButton.setStyleName(ValoTheme.BUTTON_DANGER);
+        deleteallButton.setEnabled(false);
         Grid<Student> grid = new Grid<>();
         grid.setWidth("1350px");
         grid.addColumn(Student::getStudentId).setCaption("ID");
@@ -82,7 +85,7 @@ public class StudentView extends HorizontalLayout implements View {
         VerticalLayout verticalLayout = new VerticalLayout();
 
         HorizontalLayout horizontallAddAndDeleteButtonLayout = new HorizontalLayout();
-        horizontallAddAndDeleteButtonLayout.addComponents(addButton, updateButton, deleteButton);
+        horizontallAddAndDeleteButtonLayout.addComponents(addButton, updateButton, deleteButton, deleteallButton);
         verticalLayout.addComponents(horizontalTextFieldLayout, horizontalTextFieldLayout2, horizontallAddAndDeleteButtonLayout, grid);
 
         setGridElements(grid, studentRepository.findAll());
@@ -110,6 +113,9 @@ public class StudentView extends HorizontalLayout implements View {
                 e.printStackTrace();
             }
 
+        });
+         deleteallButton.addClickListener(click -> {
+           
         });
         deleteButton.addClickListener(click -> {
             try {
