@@ -9,6 +9,7 @@ import com.vaadin.ui.themes.ValoTheme;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import org.springframework.orm.jpa.JpaSystemException;
 
 @SpringUI
 public class StudentView extends HorizontalLayout implements View {
@@ -17,13 +18,13 @@ public class StudentView extends HorizontalLayout implements View {
     public Student updateObject;
 
     /**
-     * Constructor called when we enter this site (fe. localhost:8080/#!AccountView)
+     * Constructor called when we enter this site (fe.
+     * localhost:8080/#!AccountView)
      *
      * @param studentRepository
      */
     @Autowired
     public StudentView(StudentRepository studentRepository) {
-
 
         this.studentRepository = studentRepository;
 
@@ -55,7 +56,6 @@ public class StudentView extends HorizontalLayout implements View {
         horizontalTextFieldLayout.addComponents(imie, nazwisko, data_ur, miejsce, pesel, kod);
         horizontalTextFieldLayout2.addComponents(miasto, ulica, numer, tel, e_mail);
 
-
         Button addButton = new Button("Add");
         Button updateButton = new Button("Update");
         Button deleteButton = new Button("Delete");
@@ -66,7 +66,7 @@ public class StudentView extends HorizontalLayout implements View {
         deleteButton.setStyleName(ValoTheme.BUTTON_DANGER);
         deleteButton.setEnabled(false);
         deleteallButton.setStyleName(ValoTheme.BUTTON_DANGER);
-        deleteallButton.setEnabled(false);
+        deleteallButton.setEnabled(true);
         Grid<Student> grid = new Grid<>();
         grid.setWidth("1350px");
         grid.addColumn(Student::getStudentId).setCaption("ID");
@@ -80,7 +80,6 @@ public class StudentView extends HorizontalLayout implements View {
         grid.addColumn(Student::getUlica).setCaption("Ulica");
         grid.addColumn(Student::getTel).setCaption("Telefon");
         grid.addColumn(Student::getE_mail).setCaption("E-mail");
-        
 
         VerticalLayout verticalLayout = new VerticalLayout();
 
@@ -94,15 +93,16 @@ public class StudentView extends HorizontalLayout implements View {
 
             try {
                 /**
-                 * If values at textfield are > 0 which mean there is something more than null or ""
-                 * There will be created a new Account class object which is filled with values of texfield.
-                 * We use repository to add object to database as a entity.
+                 * If values at textfield are > 0 which mean there is something
+                 * more than null or "" There will be created a new Account
+                 * class object which is filled with values of texfield. We use
+                 * repository to add object to database as a entity.
                  */
-                
+
                 if (imie.getValue().length() > 0 && nazwisko.getValue().length() > 0 && pesel.getValue().length() > 0) {
 
                     //We use repository to add object to database as a entity.
-                    Student Student = new Student(imie.getValue(), nazwisko.getValue(), data_ur.getValue(), miejsce.getValue(), pesel.getValue(), kod.getValue(), miasto.getValue(), ulica.getValue(), numer.getValue(), tel.getValue(), e_mail.getValue() );
+                    Student Student = new Student(imie.getValue(), nazwisko.getValue(), data_ur.getValue(), miejsce.getValue(), pesel.getValue(), kod.getValue(), miasto.getValue(), ulica.getValue(), numer.getValue(), tel.getValue(), e_mail.getValue());
                     studentRepository.save(Student);
                     setGridElements(grid, studentRepository.findAll());
                 } else {
@@ -114,8 +114,13 @@ public class StudentView extends HorizontalLayout implements View {
             }
 
         });
-         deleteallButton.addClickListener(click -> {
-           
+        deleteallButton.addClickListener(click -> {
+            try {
+                studentRepository.runProcedure();
+            } catch (JpaSystemException e) {
+
+            }
+            setGridElements(grid, studentRepository.findAll());
         });
         deleteButton.addClickListener(click -> {
             try {

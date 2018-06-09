@@ -6,6 +6,9 @@ import java.util.List;
 
 
 @Entity
+@NamedStoredProcedureQueries({
+  @NamedStoredProcedureQuery(name = "deleteAllStudents", procedureName = "deleteallstudents")
+})
 public class Student {
 
     @Id
